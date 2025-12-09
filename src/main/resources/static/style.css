@@ -1,0 +1,185 @@
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --border: #30363d;
+  --text: #f0f6fc;
+  --text-muted: #8b949e;
+  --primary: #58a6ff;
+  --success: #238636;
+  --danger: #f85149;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(88, 166, 255, 0.15) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(255, 88, 150, 0.1) 0%, transparent 20%);
+}
+
+.container {
+  width: 100%;
+  max-width: 560px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(90deg, #58a6ff, #f7d7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  font-size: 1.1rem;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+input[type="url"] {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 1rem;
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input[type="url"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(88, 166, 255, 0.4);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.result {
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(88, 166, 255, 0.1);
+  border: 1px solid var(--primary);
+  border-radius: 12px;
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.short-url {
+  font-size: 1.4rem;
+  font-weight: 600;
+  word-break: break-all;
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+.copy-btn {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.copy-btn:hover {
+  background: var(--primary);
+  color: black;
+}
+
+.error {
+  color: var(--danger);
+  background: rgba(248, 81, 73, 0.1);
+  border: 1px solid var(--danger);
+}
+
+.redirecting {
+  text-align: center;
+  font-size: 1.5rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% {   opacity: 1; }
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
